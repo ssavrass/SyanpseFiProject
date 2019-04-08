@@ -1,0 +1,28 @@
+<html><head><title>SynapseFi Deposit Account</title>
+<meta charset="utf-8">
+
+
+</head><body>
+  
+  
+    <h1 style='text-align: center'><span>Create User and New Deposit Account</span></h1>
+    <div style='padding-left: 20%'>
+    <h2> Submit information for deposit account</h2>
+    
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+      <dl>
+        {{ render_field(form.name) }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.phone) }}
+      </dl>
+      <input type=submit>
+    </form> 
+
+  
+      
+ 
+
+  <p class="footer">
+    Created by Sergey Savrasov</a>
+</p></div></body></html>

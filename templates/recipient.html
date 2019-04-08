@@ -1,0 +1,37 @@
+<html><head><title>SynapseFi Deposit Account</title>
+<meta charset="utf-8">
+
+
+</head><body>
+  
+    <div style='padding-left: 20%'>
+    <h1>Send check to {{name}}</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+      <dl>
+        {{ render_field(form.amount) }}
+        {{ render_field(form.currency) }}
+        {{ render_field(form.note) }}
+       
+      </dl>
+      <input type=submit>
+    </form>
+
+    <h2>Sent checks</h2>
+
+    {% for el in check_details %}
+        <p>To: {{el.to}} Amount: {{el.amount}} Currecy: {{el.currency}}</p>
+        <p>Body {{el.body}}</p>
+    {% endfor %}
+
+
+    <a href="{{url_for('myaccount')}}"> Back </a>
+
+
+
+      
+ 
+
+  <p class="footer" style="font-weight: bold;">
+    Created by Sergey Savrasov</a>
+</p></div></body></html>

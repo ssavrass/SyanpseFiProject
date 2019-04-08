@@ -1,0 +1,65 @@
+<html><head><title>SynapseFi Deposit Account</title>
+<meta charset="utf-8">
+
+
+</head>
+
+<body>
+  
+  
+    <h1 style='text-align: center'><span>Thank you for your information</span></h1>
+    <div style='padding-left: 20%'>
+    <h2>Your information</h2>
+    
+    <p> <strong>Name:</strong> {{deposit_details.name}}</p>
+    <p> <strong>Email</strong>  {{deposit_details.email}}</p>
+    <p> <strong>Phone:</strong> {{deposit_details.phone}}</p>
+     <p> <strong>ID:</strong> {{deposit_details._id}}</p>
+
+     <p> {{deposit_details.body}} </p>
+
+    <h2>Create New Check Recipient</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{message}}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+      <dl>
+        {{ render_field(form.nick_name) }}
+        {{ render_field(form.payee_name) }}
+        {{ render_field(form.street) }}
+        {{ render_field(form.city) }}
+        {{ render_field(form.state) }}
+        {{ render_field(form.country) }}
+        {{ render_field(form.zip_code) }}
+      </dl>
+      <input type=submit>
+    </form>
+
+
+
+
+    <h2>Send check to recipient</h2>
+
+    {% for el in recipients %}
+        <p><a href="recipient/{{el.payee_name}}">Payee:{{el.payee_name}} Nickname:{{el.nick_name}}</a></p>
+        <p> {{el.body}} </p>
+    {% endfor %}
+
+
+
+
+      
+ 
+
+  <p class="footer" style="font-weight: bold;">
+    Created by Sergey Savrasov</a>
+</p></div></body></html>
