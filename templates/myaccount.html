@@ -50,7 +50,7 @@
     <h2>Send check to recipient</h2>
 
     {% for el in recipients %}
-        <p><a href="recipient/{{el.payee_name}}">Payee:{{el.payee_name}} Nickname:{{el.nick_name}}</a></p>
+        <p><a href="recipient/{{el['info']['payee_name']}}">Payee:{{el['info']['payee_name']}} Nickname:{{el['info']['nickname']}}</a></p>
         <p> {{el.body}} </p>
     {% endfor %}
 

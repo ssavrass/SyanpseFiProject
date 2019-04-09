@@ -1,4 +1,5 @@
 from wtforms import Form, StringField, validators
+from .mongodb import MongoDB
 
 class DepositForm(Form):
     name = StringField('Name',[validators.Length(min=1)])
@@ -28,6 +29,10 @@ class DepositDetails():
 		self.phone = phone
 		self._id = _id
 		self.body = body
+		self.db = MongoDB()
+		self.db.add_user(_id,name,email,phone)
+		self.db.add_deposit_node(_id,body)
+
 
 class RecipientDetails():
 	recipients = []

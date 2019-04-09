@@ -20,8 +20,8 @@
     <h2>Sent checks</h2>
 
     {% for el in check_details %}
-        <p>To: {{el.to}} Amount: {{el.amount}} Currecy: {{el.currency}}</p>
-        <p>Body {{el.body}}</p>
+        <p>To:   {{el.to.nickname}}   Amount:  {{el.amount.amount}}   Currecy:   {{el.amount.currency}} </p>
+        <p>Body {{el}}</p>
     {% endfor %}
 
 
